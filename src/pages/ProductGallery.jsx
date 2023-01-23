@@ -5,7 +5,7 @@ import { Helmet } from 'react-helmet'
 import { Header } from '../components/core/Header'
 import { Footer } from '../components/core/Footer'
 
-export const ProductsPage = () => {
+export const ProductGalleryPage = () => {
   return (
     <Fragment>
       <Helmet>
