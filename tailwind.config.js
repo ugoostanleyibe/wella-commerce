@@ -8,6 +8,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        silver: '#D8D8D8',
         accent: '#A18A68'
       }
     }

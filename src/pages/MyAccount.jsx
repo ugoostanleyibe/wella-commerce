@@ -5,13 +5,13 @@ import { Helmet } from 'react-helmet'
 import { Header } from '../components/core/Header'
 import { Footer } from '../components/core/Footer'
 
-export const ProductGalleryPage = () => {
+export const MyAccountPage = () => {
   return (
     <Fragment>
       <Helmet>
-        <title>All Products</title>
+        <title>Wella Commerce | My Account</title>
       </Helmet>
-      <Header currentIndex={0} />
+      <Header currentIndex={-1} />
       <main>
       </main>
       <Footer />

@@ -9,7 +9,7 @@ export const BlogPage = () => {
   return (
     <Fragment>
       <Helmet>
-        <title>Blog</title>
+        <title>Wella Commerce | Blog</title>
       </Helmet>
       <Header currentIndex={2} />
       <main>

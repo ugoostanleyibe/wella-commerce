@@ -5,11 +5,11 @@ import { Helmet } from 'react-helmet'
 import { Header } from '../components/core/Header'
 import { Footer } from '../components/core/Footer'
 
-export const ShoppingCartPage = () => {
+export const CartPage = () => {
   return (
     <Fragment>
       <Helmet>
-        <title>Shopping Cart</title>
+        <title>Wella Commerce | Cart</title>
       </Helmet>
       <Header currentIndex={-1} />
       <main>

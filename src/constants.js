@@ -1,1 +1,1 @@
-const appName = 'Ñurika'
+export const appName = 'Ñurika'
