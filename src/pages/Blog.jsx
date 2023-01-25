@@ -9,10 +9,10 @@ export const BlogPage = () => {
   return (
     <Fragment>
       <Helmet>
-        <title>Wella Commerce | Blog</title>
+        <title>Blog &#8211; Wella Commerce</title>
       </Helmet>
       <Header currentIndex={2} />
-      <main>
+      <main className="w-[1252px] max-w-[1252px] min-h-[148px] my-24 mx-auto">
       </main>
       <Footer />
     </Fragment>

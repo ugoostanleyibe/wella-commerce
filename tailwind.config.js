@@ -8,8 +8,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        silver: '#D8D8D8',
-        accent: '#A18A68'
+        'light-silver': '#D8D8D8',
+        'dark-silver': '#707070',
+        beaver: '#A18A68'
       }
     }
   }

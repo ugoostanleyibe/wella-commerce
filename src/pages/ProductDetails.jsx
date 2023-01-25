@@ -9,10 +9,10 @@ export const ProductDetailsPage = () => {
   return (
     <Fragment>
       <Helmet>
-        <title>Wella Commerce | Product Details</title>
+        <title>Product Details &#8211; Wella Commerce</title>
       </Helmet>
       <Header currentIndex={-1} />
-      <main>
+      <main className="w-[1252px] max-w-[1252px] min-h-[148px] my-24 mx-auto">
       </main>
       <Footer />
     </Fragment>

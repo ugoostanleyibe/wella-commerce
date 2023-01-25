@@ -9,10 +9,10 @@ export const CartPage = () => {
   return (
     <Fragment>
       <Helmet>
-        <title>Wella Commerce | Cart</title>
+        <title>Cart &#8211; Wella Commerce</title>
       </Helmet>
       <Header currentIndex={-1} />
-      <main>
+      <main className="w-[1252px] max-w-[1252px] min-h-[148px] my-24 mx-auto">
       </main>
       <Footer />
     </Fragment>
