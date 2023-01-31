@@ -1,22 +1,26 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-  isSignedIn: JSON.parse(localStorage.getItem('isSignedIn')) || false
+  items: JSON.parse(localStorage.getItem('cartItems')) || []
 }
 
 const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
-    signIn: state => {
-      localStorage.setItem('isSignedIn', JSON.stringify(state.isSignedIn = true))
+    removeItemFromCart: (state, action) => {
+      state.items = state.items.filter(item => item.id !== action.payload)
+      localStorage.setItem('cartItems', JSON.stringify(state.items))
     },
-    signOut: state => {
-      localStorage.removeItem('isSignedIn')
-      state.isSignedIn = false
+    addItemToCart: (state, action) => {
+      state.items = [...state.items, action.payload]
+      localStorage.setItem('cartItems', JSON.stringify(state.items))
+    },
+    clearCart: state => {
+      state.items = []
     }
   }
 })
 
-export const { signIn, signOut } = cartSlice.actions
+export const { removeItemFromCart, addItemToCart, clearCart } = cartSlice.actions
 export const cartReducer = cartSlice.reducer

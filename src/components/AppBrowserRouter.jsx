@@ -27,8 +27,9 @@ export const AppBrowserRouter = () => {
           <Route path="blog" element={<BlogPage />} />
           <Route path="cart" element={<CartPage />} />
           <Route index element={<ProductsPage />} />
-          <Route path="product">
+          <Route path="products">
             <Route path=":productId" element={<ProductDetailsPage />} />
+            <Route index element={<ProductsPage />} />
           </Route>
         </Route>
       </Routes>

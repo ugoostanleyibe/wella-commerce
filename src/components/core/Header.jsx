@@ -8,8 +8,8 @@ import { logoImg } from '../../assets'
 export const Header = ({ currentIndex }) => {
   const navItems = [
     {
-      name: 'Products',
-      path: '/'
+      path: '/',
+      name: 'Products'
     },
     {
       path: '/our-story',
