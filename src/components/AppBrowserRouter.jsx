@@ -18,6 +18,7 @@ export const AppBrowserRouter = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/">
+          <Route path="*" element={<ProductsPage />} />
           <Route path="shipping-and-returns" element={<ShippingAndReturnsPage />} />
           <Route path="terms-of-service" element={<TermsOfServicePage />} />
           <Route path="privacy-policy" element={<PrivacyPolicyPage />} />

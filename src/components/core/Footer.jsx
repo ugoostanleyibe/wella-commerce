@@ -74,7 +74,7 @@ export const Footer = () => {
       <section className="flex flex-col items-end">
         <form className="flex space-x-5" onSubmit={handleNewsletterFormSubmit}>
           <input required type="email" value={email} onChange={event => setEmail(event.target.value)} className="focus:ring-0 focus:rounded focus:border-2 focus:border-black border-0 border-b border-black placeholder-dark-silver text-sm w-[354px] px-1 py-3" placeholder="Give an email, get the newsletter" />
-          <button type="submit" className="bg-black hover:bg-beaver rounded font-bold text-white hover:text-black text-sm uppercase p-[14px]">Subscribe</button>
+          <button type="submit" className="bg-black hover:bg-beaver rounded font-bold text-white hover:text-black text-sm uppercase p-3.5">Subscribe</button>
         </form>
         <ul className="flex space-x-8 mt-14">
           {

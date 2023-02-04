@@ -9,7 +9,7 @@ import { Header } from '../components/core/Header'
 import { Footer } from '../components/core/Footer'
 
 export const ProductsPage = () => {
-  const { items: products } = useSelector(state => state.stock)
+  const { products } = useSelector(state => state.stock)
 
   const [gridRef] = useAutoAnimate()
 

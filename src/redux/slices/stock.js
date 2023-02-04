@@ -10,7 +10,8 @@ import {
 } from '../../assets'
 
 const initialState = {
-  items: [
+  productInView: null,
+  products: [
     {
       id: 'lira-earrings',
       name: 'Lira Earrings',
@@ -54,14 +55,17 @@ const stockSlice = createSlice({
   name: 'stock',
   initialState,
   reducers: {
-    addItemToStock: (state, action) => {
-      state.items = [...state.items, action.payload]
+    addProductToStock: (state, action) => {
+      state.products = [...state.products, action.payload]
+    },
+    setProductInView: (state, action) => {
+      state.productInView = action.payload
     },
     clearStock: state => {
-      state.items = []
+      state.products = []
     }
   }
 })
 
-export const { addItemToStock, clearStock } = stockSlice.actions
+export const { addProductToStock, setProductInView, clearStock } = stockSlice.actions
 export const stockReducer = stockSlice.reducer

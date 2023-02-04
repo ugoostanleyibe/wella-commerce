@@ -9,6 +9,7 @@ module.exports = {
     extend: {
       colors: {
         'light-silver': '#D8D8D8',
+        'bright-grey': '#EFEFEF',
         'dark-silver': '#707070',
         beaver: '#A18A68'
       }
