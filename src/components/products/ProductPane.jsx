@@ -17,10 +17,10 @@ export const ProductPane = product => {
 
   return (
     <article className="flex flex-col rounded-lg overflow-hidden">
-      <Link to={`/products/${id}`} onClick={handleClick} className="product-wrapper">
+      <Link to={`/${id}`} onClick={handleClick} className="product-wrapper">
         <img src={image} className="rounded-lg mx-auto" alt={name} />
       </Link>
-      <Link to={`/products/${id}`} onClick={handleClick} className="text-black hover:text-beaver text-xl mt-6">
+      <Link to={`/${id}`} onClick={handleClick} className="text-black hover:text-beaver text-xl mt-6">
         {name}
       </Link>
       <p className="font-medium text-beaver text-xl mt-2">

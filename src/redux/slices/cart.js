@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-  items: JSON.parse(localStorage.getItem('cartItems')) || []
+  items: JSON.parse(localStorage.getItem('cartItems')) || {}
 }
 
 const cartSlice = createSlice({
@@ -9,18 +9,27 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     removeItemFromCart: (state, action) => {
-      state.items = state.items.filter(item => item.id !== action.payload)
-      // localStorage.setItem('cartItems', JSON.stringify(state.items))
+      const duplicateItems = { ...state.items }
+      delete duplicateItems[action.payload]
+      state.items = duplicateItems
+      localStorage.setItem('cartItems', JSON.stringify(state.items))
+    },
+    updateItemInCart: (state, action) => {
+      const { id, quantity } = action.payload
+      state.items = { ...state.items, [id]: { ...state.items[id], quantity } }
+      localStorage.setItem('cartItems', JSON.stringify(state.items))
     },
     addItemToCart: (state, action) => {
-      state.items = [...state.items, ...Array(action.payload.quantity).fill(action.payload.item)]
-      // localStorage.setItem('cartItems', JSON.stringify(state.items))
+      const { item, quantity } = action.payload
+      state.items = { ...state.items, [item.id]: { ...item, quantity: (state.items[item.id]?.quantity || 0) + quantity } }
+      localStorage.setItem('cartItems', JSON.stringify(state.items))
     },
     clearCart: state => {
-      state.items = []
+      state.items = {}
+      localStorage.setItem('cartItems', JSON.stringify(state.items))
     }
   }
 })
 
-export const { removeItemFromCart, addItemToCart, clearCart } = cartSlice.actions
+export const { removeItemFromCart, updateItemInCart, addItemToCart, clearCart } = cartSlice.actions
 export const cartReducer = cartSlice.reducer

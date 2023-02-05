@@ -7,4 +7,4 @@ export { default as hairPinImg } from './images/hair_pin.png'
 export { default as logoImg } from './images/logo.svg'
 
 export { default as successIcon } from './icons/success.svg'
-export { default as menuIcon } from './icons/menu.svg'
+export { default as closeIcon } from './icons/close.svg'

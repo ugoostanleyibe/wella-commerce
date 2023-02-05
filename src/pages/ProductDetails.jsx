@@ -9,6 +9,7 @@ import { setProductInView } from '../redux/slices/stock'
 import { addItemToCart } from '../redux/slices/cart'
 import { Header } from '../components/core/Header'
 import { Footer } from '../components/core/Footer'
+import { useIsMounted } from '../hooks/mounted'
 
 import { successIcon } from '../assets'
 
@@ -20,6 +21,7 @@ export const ProductDetailsPage = () => {
 
   const [listRef] = useAutoAnimate()
 
+  const isMounted = useIsMounted()
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
@@ -29,9 +31,11 @@ export const ProductDetailsPage = () => {
     if (productInView === null) {
       const product = products.find(product => product.id === productId)
       if (product !== undefined) {
-        dispatch(setProductInView(product))
+        if (isMounted()) {
+          dispatch(setProductInView(product))
+        }
       } else {
-        navigate('/products')
+        navigate('/')
       }
     }
 
@@ -42,6 +46,11 @@ export const ProductDetailsPage = () => {
     event.preventDefault()
     dispatch(addItemToCart({ item: productInView, quantity }))
     setShouldShowInfoBanner(true)
+    setTimeout(() => {
+      if (isMounted()) {
+        setShouldShowInfoBanner(false)
+      }
+    }, 2048)
   }
 
   if (productInView !== null) {
@@ -78,7 +87,7 @@ export const ProductDetailsPage = () => {
                 </p>
                 <form className="flex mt-16" onSubmit={handleAddToCart}>
                   <input required type="number" className="bg-bright-grey text-dark-silver text-center rounded border-0 focus:ring-0 w-28 py-4" value={quantity} onChange={event => setQuantity(+event.target.value)} title="quantity" min="1" max="1000" step="1" inputMode="numeric" autoComplete="off" />
-                  <button type="submit" className="hover:bg-black font-bold text-black hover:text-white text-center uppercase rounded border border-black w-full ml-6 p-4">Add to Cart</button>
+                  <button type="submit" className="hover:bg-black font-bold text-black hover:text-white text-center uppercase rounded border border-black w-full ml-6 p-4">Add To Cart</button>
                 </form>
                 <div className="flex flex-col space-y-2 mt-8">
                   <p>Description:&nbsp;&nbsp;<span className="text-dark-silver">This product is officially named {name}</span></p>
